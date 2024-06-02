@@ -57,5 +57,6 @@ Follow the instructions [here](https://nim-lang.org/install_windows.html) to ins
 ```shell
 nimble develop -g # Installs a link to the source code as an installed module
 cd ./examples/hello
+nimble setup -Y # Downloads internet packages and finds the locally linked exogenesis
 nimble build_hello
 ```
