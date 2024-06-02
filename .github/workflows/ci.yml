@@ -45,13 +45,14 @@ jobs:
         if: ${{ !startsWith(matrix.os, 'windows') }}
         working-directory: examples
         run: |
-          nimble setup -Y
-
           for example in $(ls); do
             pushd ${example}
+
+            nimble setup -Y
             nimble exo_build
             nimble exo_debug
             nimble exo_run
+
             popd
           done
 
@@ -59,13 +60,14 @@ jobs:
         if: startsWith(matrix.os, 'windows')
         working-directory: examples
         run: |
-          nimble setup -Y
-
           $examples = Get-ChildItem .
           foreach ($example in $examples) {
             cd $example
+
+            nimble setup -Y
             nimble exo_build
             nimble exo_debug
             nimble exo_run
+
             cd ..
           }
