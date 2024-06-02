@@ -27,3 +27,12 @@ jobs:
       - name: Static Analysis
         run: |
           nimble check -Y
+
+      - name: Build Examples
+        run: |
+          nimble develop
+
+          cd examples/hello
+          nimble build_hello
+          nimble debug_hello
+          nimble run_hello

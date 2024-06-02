@@ -48,3 +48,7 @@ Then install `nim`
 ```PowerShell
 scoop install nim
 ```
+
+### [Windows] Install C compiler
+
+Follow the instructions [here](https://nim-lang.org/install_windows.html) to install minGW
