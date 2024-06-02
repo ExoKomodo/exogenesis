@@ -1,15 +1,14 @@
 # ExoGenesis
 
-[Documentation](https://exokomodo.github.io/exogenesus/exogenesis.html)
-
 ## Important Links
 
+* [Documentation](https://exokomodo.github.io/exogenesis)
 * [Source Code Repository](https://github.com/ExoKomodo/exogenesis)
 * [Nim](https://nim-lang.org)
 * [Nimble Package Manager](https://github.com/nim-lang/nimble)
 * [Scoop](https://scoop.sh/)
 
-## Setup
+## Setup Nim
 
 To install [`nim`](https://nim-lang.org), use [`choosenim`](https://github.com/dom96/choosenim) to manage versions
 
@@ -52,3 +51,7 @@ scoop install nim
 ### [Windows] Install C compiler
 
 Follow the instructions [here](https://nim-lang.org/install_windows.html) to install minGW
+
+## Local Development
+
+Instructions are a WIP, but the [CI workflow](./.github/workflows/ci.yml) is a working example of how to locally install and run the project
