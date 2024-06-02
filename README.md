@@ -1,6 +1,6 @@
 # ExoGenesis
 
-[Documentation](https://exokomodo.github.io/KomodoNim/komodo.html)
+[Documentation](https://exokomodo.github.io/exogenesus/exogenesis.html)
 
 ## Important Links
 
