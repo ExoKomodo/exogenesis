@@ -1,4 +1,4 @@
 import exogenesis
 
 when isMainModule:
-  echo (add 1 2)
+  echo add(1, 2)
