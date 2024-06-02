@@ -41,9 +41,31 @@ jobs:
         run: |
           nimble develop -g
 
-      - name: Examples
-        working-directory: examples/hello
+      - name: '[unix] Examples'
+        if: ${{ !startsWith(matrix.os, 'windows') }}
+        working-directory: examples
         run: |
-          nimble build_hello
-          nimble debug_hello
-          nimble run_hello
+          nimble setup -Y
+
+          for example in $(ls); do
+            pushd ${example}
+            nimble exo_build
+            nimble exo_debug
+            nimble exo_run
+            popd
+          done
+
+      - name: '[windows] Examples'
+        if: startsWith(matrix.os, 'windows')
+        working-directory: examples
+        run: |
+          nimble setup -Y
+
+          $examples = Get-ChildItem .
+          foreach ($example in $examples) {
+            cd $example
+            nimble exo_build
+            nimble exo_debug
+            nimble exo_run
+            cd ..
+          }
