@@ -34,7 +34,6 @@ jobs:
           nimble check -Y
 
       - name: Test
-        working-directory: tests
         run: |
           nimble test
 
