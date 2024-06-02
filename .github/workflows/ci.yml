@@ -38,5 +38,4 @@ jobs:
           nimble install
 
           cd examples/hello
-          nimble setup -Y
           nimble build_hello
