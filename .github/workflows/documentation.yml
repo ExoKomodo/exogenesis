@@ -1,0 +1,42 @@
+name: Documentation
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup nim
+        uses: jiro4989/setup-nim-action@v1
+        with:
+          nim-version: 2.0.x
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate documentation
+        run: |
+          nimble genDoc
+          cp htmldocs/theindex.html htmldocs/index.html
+          cp htmldocs/index.html htmldocs/404.html
+          cp README.md ./htmldocs/README.md
+
+      - name: Deploy documentation
+        if: ${{ github.ref == 'refs/heads/main' }} # Publish only when the push is on develop
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: htmldocs
+          allow_empty_commit: false
+          keep_files: false
+          force_orphan: true
+

@@ -1,0 +1,29 @@
+name: CI
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macOS-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup nim
+        uses: jiro4989/setup-nim-action@v1
+        with:
+          nim-version: 2.0.x
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Static Analysis
+        run: |
+          nimble check -Y
