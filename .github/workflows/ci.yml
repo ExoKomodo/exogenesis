@@ -33,11 +33,12 @@ jobs:
         run: |
           nimble check -Y
 
-      - name: Build Examples
+      - name: Install exogenesis
         run: |
-          nimble develop
+          nimble install
 
-          cd examples/hello
+      - name: Build example
+        working-directory: examples/hello
+        run: |
+          nimble setup -Y
           nimble build_hello
-          nimble debug_hello
-          nimble run_hello
