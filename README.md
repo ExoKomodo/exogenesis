@@ -54,4 +54,8 @@ Follow the instructions [here](https://nim-lang.org/install_windows.html) to ins
 
 ## Local Development
 
-Instructions are a WIP, but the [CI workflow](./.github/workflows/ci.yml) is a working example of how to locally install and run the project
+```shell
+nimble develop -g # Installs a link to the source code as an installed module
+cd ./examples/hello
+nimble build_hello
+```

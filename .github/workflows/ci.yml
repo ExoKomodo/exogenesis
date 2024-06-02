@@ -39,12 +39,11 @@ jobs:
 
       - name: Local Install
         run: |
-          nimble install
+          nimble develop -g
 
       - name: Examples
         working-directory: examples/hello
         run: |
-          nimble setup -Y
           nimble build_hello
           nimble debug_hello
           nimble run_hello
