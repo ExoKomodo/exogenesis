@@ -37,6 +37,10 @@ jobs:
         run: |
           nimble test
 
+      - name: Local Install
+        run: |
+          nimble install
+
       - name: Examples
         working-directory: examples/hello
         run: |
