@@ -1,8 +1,8 @@
 name: Documentation
 on:
   push:
-    branches-ignore:
-      - gh-pages
+    branches:
+      - main
 
 jobs:
   build:
