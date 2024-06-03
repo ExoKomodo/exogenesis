@@ -39,12 +39,35 @@ jobs:
 
       - name: Local Install
         run: |
-          nimble install
+          nimble develop -g
 
-      - name: Examples
-        working-directory: examples/hello
+      - name: '[unix] Examples'
+        if: ${{ !startsWith(matrix.os, 'windows') }}
+        working-directory: examples
         run: |
-          nimble setup -Y
-          nimble build_hello
-          nimble debug_hello
-          nimble run_hello
+          for example in $(ls); do
+            pushd ${example}
+
+            nimble setup -Y
+            nimble exo_build
+            nimble exo_debug
+            nimble exo_run
+
+            popd
+          done
+
+      - name: '[windows] Examples'
+        if: startsWith(matrix.os, 'windows')
+        working-directory: examples
+        run: |
+          $examples = Get-ChildItem .
+          foreach ($example in $examples) {
+            cd $example
+
+            nimble setup -Y
+            nimble exo_build
+            nimble exo_debug
+            nimble exo_run
+
+            cd ..
+          }

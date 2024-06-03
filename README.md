@@ -8,6 +8,19 @@
 * [Nimble Package Manager](https://github.com/nim-lang/nimble)
 * [Scoop](https://scoop.sh/)
 
+## Local Development
+
+If `nim` is installed
+
+```shell
+nimble develop -g # Installs a link to the source code as an installed module
+cd ./examples/hello
+nimble setup -Y # Downloads internet packages and finds the locally linked exogenesis
+nimble exo_build # Builds a normal binary
+nimble exo_debug # Builds a debug binary
+nimble exo_run # Runs the example directly
+```
+
 ## Setup Nim
 
 To install [`nim`](https://nim-lang.org), use [`choosenim`](https://github.com/dom96/choosenim) to manage versions
@@ -51,7 +64,3 @@ scoop install nim
 ### [Windows] Install C compiler
 
 Follow the instructions [here](https://nim-lang.org/install_windows.html) to install minGW
-
-## Local Development
-
-Instructions are a WIP, but the [CI workflow](./.github/workflows/ci.yml) is a working example of how to locally install and run the project

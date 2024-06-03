@@ -14,11 +14,11 @@ requires "nim >= 2.0.4"
 
 requires "exogenesis"
 
-task build_hello, "[hello] Build":
+task exo_build, "[hello] Build":
   exec "nimble -d:nimpretty build -Y"
 
-task debug_hello, "[hello] Debug":
+task exo_debug, "[hello] Debug":
   exec "nimble -g --debugger:native -d:nimpretty build -Y"
 
-task run_hello, "[hello] Run":
+task exo_run, "[hello] Run":
   exec "nimble -d:nimpretty run -Y"
