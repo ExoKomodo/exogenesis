@@ -15,10 +15,10 @@ requires "nim >= 2.0.4"
 requires "exogenesis"
 
 task exo_build, "[hello] Build":
-  exec "nimble -d:nimpretty -d:nimDebugDlOpen build -Y"
+  exec "nimble -d:nimpretty build -Y"
 
 task exo_debug, "[hello] Debug":
-  exec "nimble -g --debugger:native -d:nimpretty build -Y"
+  exec "nimble -g --debugger:native -d:nimpretty -d:nimDebugDlOpen build -Y"
 
 task exo_run, "[hello] Run":
   exec "nimble -d:nimpretty run -Y"
