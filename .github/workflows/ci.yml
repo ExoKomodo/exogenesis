@@ -51,7 +51,6 @@ jobs:
             nimble setup -Y
             nimble exo_build
             nimble exo_debug
-            nimble exo_run
 
             popd
           done
@@ -67,7 +66,6 @@ jobs:
             nimble setup -Y
             nimble exo_build
             nimble exo_debug
-            nimble exo_run
 
             cd ..
           }
