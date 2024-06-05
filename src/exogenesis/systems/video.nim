@@ -5,7 +5,7 @@ import sdl2
 type
     System* = object of TSystem
       window: WindowPtr
-      window_title: string
+      window_title: cstring
       window_height: cint
       window_width: cint
       screen_surface: SurfacePtr
