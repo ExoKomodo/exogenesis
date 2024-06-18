@@ -45,6 +45,18 @@ export PATH=~/.nimble/bin:$PATH
 choosenim stable
 ```
 
+### [Ubuntu] Install SDL2
+
+```bash
+sudo apt-get install libsdl2-dev
+```
+
+### [Mac] Install SDL2
+
+```zsh
+brew install sdl2{,_gfx,_image,_mixer,_net,_ttf}
+```
+
 ### [Windows] Install Nim
 
 #### Using scoop
@@ -64,3 +76,7 @@ scoop install nim
 ### [Windows] Install C compiler
 
 Follow the instructions [here](https://nim-lang.org/install_windows.html) to install minGW
+
+### [Windows] Install SDL2
+
+TODO

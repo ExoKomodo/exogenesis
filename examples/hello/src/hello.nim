@@ -1,11 +1,13 @@
 import exogenesis/systems/prelude
 
-when isMainModule:
-  var done = false
+import sdl2
 
-  let audio_system = audio.System()
-  let video_system = video.System()
-  let input_system = input.System()
+when isMainModule:
+  var
+    done = false
+    audio_system = audio.System()
+    video_system = video.System()
+    input_system = input.System()
   assert audio_system.init()
   assert video_system.init()
   assert input_system.init()
@@ -15,7 +17,11 @@ when isMainModule:
   assert input_system.check()
 
   while not done:
-    done = true
+    var event = sdl2.defaultEvent
+    while pollEvent(event):
+      if event.kind == QuitEvent:
+        done = true
+    discard video_system.clear()
 
   discard input_system.close()
   discard video_system.close()

@@ -10,6 +10,7 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 2.0.4"
+requires "sdl2 >= 2.0.5"
 
 task genDoc, "Generate documentation":
   exec "nimble doc --project --outdir:htmldocs --index:on ./src/exogenesis.nim --git.url:https://github.com/exokomodo/exogenesis --git.commit:main --git.devel:main"
