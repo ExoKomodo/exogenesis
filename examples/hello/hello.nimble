@@ -21,4 +21,4 @@ task exo_debug, "[hello] Debug":
   exec "nimble -g --debugger:native -d:nimpretty -d:nimDebugDlOpen build -Y"
 
 task exo_run, "[hello] Run":
-  exec "nimble -d:nimpretty run -Y"
+  exec "nimble -d:nimpretty -d:nimDebugDlOpen run -Y"
